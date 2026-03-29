@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5, user-scalable=yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="theme-color" content="#0d9488" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>محاسب مشروعي - إدارة الحسابات</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="load-error" style="display:none; padding:24px; font-family:Cairo; direction:rtl; background:#fee2e2; color:#991b1b; margin:12px; border-radius:8px;">
+      <strong>خطأ في تحميل التطبيق:</strong>
+      <pre id="load-error-msg" style="white-space:pre-wrap; word-break:break-word; margin-top:8px;"></pre>
+    </div>
+    <script>
+      window.addEventListener('error', function(e) {
+        var el = document.getElementById('load-error');
+        var msg = document.getElementById('load-error-msg');
+        if (el && msg) {
+          msg.textContent = (e.message || e.reason || String(e)) + (e.filename ? '\nفي: ' + e.filename : '');
+          el.style.display = 'block';
+        }
+      });
+      window.addEventListener('unhandledrejection', function(e) {
+        var el = document.getElementById('load-error');
+        var msg = document.getElementById('load-error-msg');
+        if (el && msg) {
+          msg.textContent = (e.reason && (e.reason.message || e.reason)) || String(e.reason);
+          el.style.display = 'block';
+        }
+      });
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

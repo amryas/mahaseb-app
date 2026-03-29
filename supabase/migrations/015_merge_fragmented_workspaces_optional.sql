@@ -1,0 +1,36 @@
+-- صيانة يدوية — دمج مساحات عمل مكررة لنفس المستخدم (تشغيل من SQL Editor بإشراف)
+-- ⚠️ انسخ احتياطي كاملاً قبل التنفيذ. عدّل المعرفات حسب بيئتك.
+--
+-- الفكرة: اختر workspace «رئيسي» (أكثر بيانات)، ثم انقل workspace_id في الجداول الفرعية
+-- من المساحات الثانوية إلى الرئيسية، ثم احذف الصفوف/العضويات القديمة.
+--
+-- مثال هيكلي (غير جاهز للتشغيل المباشر — يحتاج استبدال UUIDs):
+--
+-- WITH primary_ws AS (
+--   SELECT 'aaaaaaaa-....'::uuid AS id
+-- ),
+-- secondary AS (
+--   SELECT unnest(ARRAY['bbbbbbbb-....'::uuid, 'cccccccc-....'::uuid]) AS id
+-- )
+-- UPDATE public.products SET workspace_id = (SELECT id FROM primary_ws)
+-- WHERE workspace_id IN (SELECT id FROM secondary);
+--
+-- UPDATE public.transactions SET workspace_id = (SELECT id FROM primary_ws)
+-- WHERE workspace_id IN (SELECT id FROM secondary);
+--
+-- UPDATE public.invoices SET workspace_id = (SELECT id FROM primary_ws)
+-- WHERE workspace_id IN (SELECT id FROM secondary);
+--
+-- UPDATE public.sales SET workspace_id = (SELECT id FROM primary_ws)
+-- WHERE workspace_id IN (SELECT id FROM secondary);
+--
+-- UPDATE public.customers SET workspace_id = (SELECT id FROM primary_ws)
+-- WHERE workspace_id IN (SELECT id FROM secondary);
+--
+-- UPDATE public.account_data SET account_id = (SELECT id FROM primary_ws)
+-- WHERE account_id IN (SELECT id FROM secondary);
+--
+-- DELETE FROM public.workspace_members WHERE workspace_id IN (SELECT id FROM secondary);
+-- DELETE FROM public.workspaces WHERE id IN (SELECT id FROM secondary);
+--
+-- راجع أيضاً: subscriptions، usage_events، sync_queue، وأي جداول مخصصة لديك.

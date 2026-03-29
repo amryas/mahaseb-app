@@ -1,0 +1,13 @@
+-- اختياري — بعد تنظيف المستخدمين الذين لديهم أكثر من workspace كـ owner يدوياً
+-- لا تشغّل هذا الملف تلقائياً إن وُجدت صفوف مكررة لنفس owner_id (فشل UNIQUE).
+--
+-- الهدف: ضمان workspace واحد لكل مالك على مستوى قاعدة البيانات.
+-- 1) راجع: SELECT owner_id, count(*) FROM public.workspaces GROUP BY owner_id HAVING count(*) > 1;
+-- 2) دمج البيانات (انظر 015_merge_fragmented_workspaces_optional.sql).
+-- 3) ثم:
+--
+-- CREATE UNIQUE INDEX IF NOT EXISTS workspaces_owner_id_unique
+--   ON public.workspaces (owner_id);
+--
+-- ملاحظة: إن احتجت مستقبلاً لأكثر من workspace لكل مالك (فرق عمل)، احذف الفهرس
+-- واعتمد فقط على get_or_create_primary_workspace() في العميل.

@@ -1,0 +1,47 @@
+.subscription-status--active {
+  background: var(--success-bg, #e8f5e9);
+  border-color: var(--success-border, #4caf50);
+}
+
+.subscription-status--expired {
+  background: #ffebee;
+  border-color: #f44336;
+}
+
+.subscription-error {
+  color: var(--error, #c62828);
+  margin-bottom: 1rem;
+}
+
+.subscription-plans--single {
+  max-width: 380px;
+}
+
+.plan-card--monthly .plan-price {
+  margin: 0.5rem 0 1rem;
+}
+
+.plan-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+.plan-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0;
+}
+
+.plan-check {
+  color: var(--success, #2e7d32);
+  font-weight: bold;
+}
+
+.plan-active-badge {
+  margin: 0;
+  padding: 0.5rem 0;
+  color: var(--success, #2e7d32);
+  font-weight: 600;
+}

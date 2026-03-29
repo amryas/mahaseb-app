@@ -1,0 +1,68 @@
+.subscription-expired-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 1rem;
+}
+
+.subscription-expired-modal {
+  background: var(--card-bg, #fff);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  padding: 1.75rem;
+  max-width: 380px;
+  width: 100%;
+}
+
+.subscription-expired-modal-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  color: var(--text, #1a1a1a);
+}
+
+.subscription-expired-modal-desc {
+  margin: 0 0 1.5rem;
+  color: var(--text-muted, #555);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.subscription-expired-modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.subscription-expired-modal-cta {
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  background: var(--primary, #1976d2);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.05s;
+}
+
+.subscription-expired-modal-cta:hover {
+  background: var(--primary-dark, #1565c0);
+  transform: translateY(-1px);
+}
+
+.subscription-expired-modal-secondary {
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  background: none;
+  border: none;
+  color: var(--text-muted, #666);
+  cursor: pointer;
+}
+
+.subscription-expired-modal-secondary:hover {
+  color: var(--text, #333);
+}

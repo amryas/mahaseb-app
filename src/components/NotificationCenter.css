@@ -1,0 +1,214 @@
+.notification-bell {
+  position: relative;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: inherit;
+  border-radius: var(--radius-sm, 8px);
+}
+.notification-bell:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.notification-bell-badge {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+  color: #fff;
+  background: var(--expense, #dc2626);
+  border-radius: 999px;
+}
+.main-content .notification-bell {
+  color: var(--secondary);
+}
+.main-content .notification-bell:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.notification-center-wrap {
+  min-width: 320px;
+  max-width: 400px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+.notification-center-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--primary-light, #ccfbf1);
+}
+.notification-center-title {
+  margin: 0;
+  font-size: 1rem;
+}
+.notification-list {
+  overflow-y: auto;
+  padding: 0.5rem;
+}
+.notification-empty {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--text-muted);
+  margin: 0;
+}
+.notification-item {
+  padding: 0.85rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: #fff;
+  cursor: default;
+  transition: background 0.2s;
+}
+.notification-item[role="button"] {
+  cursor: pointer;
+}
+.notification-item[role="button"]:hover {
+  background: #f8fafc;
+}
+.notification-item.read {
+  opacity: 0.85;
+}
+.notification-item-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+.notification-type-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.notification-warning .notification-type-icon { color: #d97706; }
+.notification-error .notification-type-icon { color: var(--expense); }
+.notification-success .notification-type-icon { color: var(--income); }
+.notification-title {
+  flex: 1;
+  font-size: 0.95rem;
+}
+.notification-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  flex-shrink: 0;
+}
+.notification-message {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  padding-right: 1.5rem;
+}
+.notification-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.notification-link-label {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.notification-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  z-index: 1000;
+}
+.notification-dropdown-mobile {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: auto;
+  max-height: 70vh;
+  margin: 0.5rem;
+  z-index: 1001;
+  border-radius: var(--radius);
+}
+
+.notification-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 1rem;
+  padding-top: 4rem;
+}
+.notification-panel {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.notification-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--primary-light, #ccfbf1);
+}
+.notification-panel-head span { font-weight: 700; }
+.notification-panel-close {
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 0.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+.notification-panel .notification-center-wrap {
+  max-width: 100%;
+  box-shadow: none;
+}
+.notification-panel .notification-list {
+  flex: 1;
+  overflow-y: auto;
+}
+.sidebar-notif-wrap {
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+.sidebar-notif-wrap .notification-bell {
+  color: var(--sidebar-text);
+}
+@media (max-width: 768px) {
+  .notification-overlay {
+    align-items: flex-start;
+    justify-content: center;
+    padding: 3rem 0.5rem 1rem;
+  }
+  .notification-panel {
+    width: 100%;
+    max-width: 400px;
+  }
+}

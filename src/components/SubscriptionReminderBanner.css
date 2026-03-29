@@ -1,0 +1,65 @@
+.subscription-reminder-banner {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.subscription-reminder-banner--trial-warning {
+  background: #fff3e0;
+  color: #e65100;
+  border-bottom: 1px solid #ff9800;
+}
+
+.subscription-reminder-banner--renew-warning {
+  background: #e3f2fd;
+  color: #1565c0;
+  border-bottom: 1px solid #2196f3;
+}
+
+.subscription-reminder-banner--grace {
+  background: #fff8e1;
+  color: #6d4c00;
+  border-bottom: 1px solid #ffc107;
+}
+
+.subscription-reminder-banner-btn {
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  white-space: nowrap;
+}
+
+.subscription-reminder-banner--trial-warning .subscription-reminder-banner-btn {
+  background: #ff9800;
+  color: #fff;
+}
+
+.subscription-reminder-banner--renew-warning .subscription-reminder-banner-btn {
+  background: #1976d2;
+  color: #fff;
+}
+
+.subscription-reminder-banner--grace .subscription-reminder-banner-btn {
+  background: #f9a825;
+  color: #1a1a1a;
+}
+
+.subscription-reminder-banner-btn:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
